@@ -19,9 +19,11 @@ position = Vector2(2, 4)
 script = ExtResource("1_6tg3q")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("2_0h07q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_b0rnn")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
