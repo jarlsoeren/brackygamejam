@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=3 format=3 uid="uid://bgws6srfjhvti"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8gt7q"]
@@ -70,3 +71,8 @@ texture = ExtResource("2_7oha3")
 [connection signal="pressed" from="UI/MultiplayerConnector/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/MultiplayerConnector/VBoxContainer/Copy OID" to="." method="_on_copy_oid_pressed"]
 [connection signal="pressed" from="UI/MultiplayerConnector/VBoxContainer/Join" to="." method="_on_join_pressed"]
+=======
+[gd_scene format=3 uid="uid://bgws6srfjhvti"]
+
+[node name="game" type="Node"]
+>>>>>>> parent of 9a5f4f4 (added_online_gameplay)

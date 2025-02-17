@@ -11,15 +11,8 @@ config_version=5
 [application]
 
 config/name="gamejam-race"
-run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Multiplayer="*res://multiplayer.gd"
-Noray="*res://addons/netfox.noray/noray.gd"
-PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
 
 [display]
 
@@ -29,6 +22,7 @@ window/size/window_width_override=2400
 window/size/window_height_override=1800
 window/stretch/mode="viewport"
 
+<<<<<<< HEAD
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg")
@@ -56,6 +50,8 @@ down={
 ]
 }
 
+=======
+>>>>>>> parent of 9a5f4f4 (added_online_gameplay)
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
