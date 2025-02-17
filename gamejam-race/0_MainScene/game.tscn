@@ -78,7 +78,6 @@ texture = ExtResource("2_gc647")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(621.25, 838.25)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pb1kh")
 
 [connection signal="pressed" from="UI/UI_Multiplayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
