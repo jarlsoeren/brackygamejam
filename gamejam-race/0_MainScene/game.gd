@@ -21,7 +21,7 @@ func _on_host_pressed():
 			print("PEER " + str(pid) + " has joined")
 			add_player(pid, Vector2(200, 50))
 	)
-	add_player(multiplayer.get_unique_id(), Vector2(50, 200))
+	add_player(multiplayer.get_unique_id(), Vector2(50, 600))
 	multiplayer_ui.hide()
 
 func _on_join_pressed():
@@ -31,6 +31,7 @@ func _on_join_pressed():
 	multiplayer_ui.hide()
 
 func add_player(pid, offset = Vector2(0, 0)):
+	await get_tree().create_timer(.1).timeout
 	var player = PLAYER.instantiate()
 	player.name = str(pid)
 	player.position = offset

@@ -19,7 +19,7 @@ extends CharacterBody2D
 		#rotation += angular_speed * delta
 	#if Input.is_action_pressed("up"):
 		#position += velocity * delta
-		
+		#
 
 @export var steering_angle = 15 # Maximum angle for steering the car's wheels
 @export var engine_power = 900 # How much force the engine can apply for acceleration
@@ -38,11 +38,10 @@ var steer_direction # Current direction of steering
 func _enter_tree():
 	set_multiplayer_authority(int(str(name)))
 
-func _process(delta):
+func _physics_process(delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
-
-func _physics_process(delta: float) -> void:
+	
 	acceleration = Vector2.ZERO
 	get_input() #  get input from player
 	apply_friction(delta) # Apply friction forces to the car

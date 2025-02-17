@@ -1,12 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgws6srfjhvti"]
+[gd_scene load_steps=4 format=3 uid="uid://bgws6srfjhvti"]
 
 [ext_resource type="Script" path="res://0_MainScene/game.gd" id="1_8gt7q"]
+[ext_resource type="Texture2D" uid="uid://cw70dbyhlc11w" path="res://icon.svg" id="2_gc647"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pb1kh"]
+size = Vector2(1259.5, 122.5)
 
 [node name="game" type="Node"]
 script = ExtResource("1_8gt7q")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(600, 450)
+enabled = false
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -63,6 +68,18 @@ horizontal_alignment = 1
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://PlayerCar/PlayerCar.tscn")
 spawn_path = NodePath("..")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(620.5, 840)
+scale = Vector2(9.82031, 0.9375)
+texture = ExtResource("2_gc647")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(621.25, 838.25)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pb1kh")
 
 [connection signal="pressed" from="UI/UI_Multiplayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="UI/UI_Multiplayer/VBoxContainer/Copy OID" to="." method="_on_copy_oid_pressed"]
