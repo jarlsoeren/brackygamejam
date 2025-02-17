@@ -1,0 +1,69 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgws6srfjhvti"]
+
+[ext_resource type="Script" path="res://0_MainScene/game.gd" id="1_8gt7q"]
+
+[node name="game" type="Node"]
+script = ExtResource("1_8gt7q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 450)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="UI_Multiplayer" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/UI_Multiplayer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -46.0
+offset_right = 103.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="Host" type="Button" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="Copy OID" type="Button" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Copy OID"
+
+[node name="HSeparator" type="HSeparator" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OID Input" type="LineEdit" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Host OID"
+
+[node name="Join" type="Button" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Join"
+
+[node name="OID" type="Label" parent="UI/UI_Multiplayer/VBoxContainer"]
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://PlayerCar/PlayerCar.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="UI/UI_Multiplayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="UI/UI_Multiplayer/VBoxContainer/Copy OID" to="." method="_on_copy_oid_pressed"]
+[connection signal="pressed" from="UI/UI_Multiplayer/VBoxContainer/Join" to="." method="_on_join_pressed"]

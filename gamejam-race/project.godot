@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="gamejam-race"
-run/main_scene="res://game.tscn"
+run/main_scene="res://0_MainScene/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Multiplayer="*res://multiplayer.gd"
+Multiplayer="*res://Multiplayer/multiplayer.gd"
 Noray="*res://addons/netfox.noray/noray.gd"
 PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
 

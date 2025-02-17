@@ -1,10 +1,10 @@
 extends Node
 
-@onready var multiplayer_ui = $UI/Multiplayer
+@onready var multiplayer_ui = $UI/UI_Multiplayer
 
-const PLAYER = preload("res://Player/Player.tscn")
-@onready var oid_lbl = $UI/Multiplayer/VBoxContainer/OID
-@onready var oid_input = $"UI/Multiplayer/VBoxContainer/OID Input"
+const PLAYER = preload("res://PlayerCar/PlayerCar.tscn")
+@onready var oid_lbl = $UI/UI_Multiplayer/VBoxContainer/OID
+@onready var oid_input = $"UI/UI_Multiplayer/VBoxContainer/OID Input"
 
 var peer = ENetMultiplayerPeer.new()
 
