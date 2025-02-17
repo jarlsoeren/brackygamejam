@@ -15,7 +15,7 @@ properties/1/spawn = true
 properties/1/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(2, 3)
+position = Vector2(2, 4)
 script = ExtResource("1_t4vds")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
