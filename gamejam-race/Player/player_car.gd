@@ -1,9 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu0n6s88jwf6l"]
-
-[ext_resource type="Texture2D" uid="uid://qgutw2vlqv2q" path="res://sprites/racer1.png" id="1_p6mji"]
-
-[sub_resource type="GDScript" id="GDScript_1d40x"]
-script/source = "extends CharacterBody2D
+extends CharacterBody2D
 
 @export var steering_angle = 15 # Maximum angle for steering the car's wheels
 @export var engine_power = 900 # How much force the engine can apply for acceleration
@@ -19,6 +14,9 @@ var wheel_base = 65 # Distance between the front and back axle of the car
 var acceleration = Vector2.ZERO # Current acceleration vector
 var steer_direction # Current direction of steering
 
+func _enter_tree():
+	set_multiplayer_authority(int(str(name)))
+
 func _physics_process(delta: float) -> void:
 	acceleration = Vector2.ZERO
 	get_input() #  get input from player
@@ -29,15 +27,15 @@ func _physics_process(delta: float) -> void:
 	
 func get_input():
 	# Get steering input and translate it to an angle
-	var turn = Input.get_axis(\"left\", \"right\")
+	var turn = Input.get_axis("left", "right")
 	steer_direction = turn * deg_to_rad(steering_angle)
 	
 	# if accelerate is pressed, apply engine power to the car's forward direction
-	if Input.is_action_pressed(\"up\"):
+	if Input.is_action_pressed("up"):
 		acceleration = transform.x * engine_power
 		
 	# If break is pressed, apply braking force
-	if Input.is_action_pressed(\"down\"):
+	if Input.is_action_pressed("down"):
 		acceleration = transform.x * braking
 		
 func apply_friction(delta):
@@ -81,20 +79,3 @@ func calculate_steering(delta):
 	rotation = new_heading.angle()
 			
 		
-"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve3ic"]
-size = Vector2(148, 73)
-
-[node name="Car" type="CharacterBody2D"]
-script = SubResource("GDScript_1d40x")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("1_p6mji")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -1.5)
-shape = SubResource("RectangleShape2D_ve3ic")
-
-[node name="Camera2D" type="Camera2D" parent="."]

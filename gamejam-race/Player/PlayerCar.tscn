@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqj8f3co2fwv0"]
 
-[ext_resource type="Script" path="res://car_movement.gd" id="1_t4vds"]
-[ext_resource type="Texture2D" uid="uid://qgutw2vlqv2q" path="res://Player/racer1.png" id="2_oidio"]
+[ext_resource type="Texture2D" uid="uid://qgutw2vlqv2q" path="res://Player/racer1.png" id="1_3psdi"]
+[ext_resource type="Script" path="res://Player/player_car.gd" id="1_uh1fx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0rnn"]
 size = Vector2(90, 160)
@@ -14,14 +14,16 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[node name="Player" type="CharacterBody2D"]
+[node name="PlayerCar" type="CharacterBody2D"]
 position = Vector2(2, 4)
-script = ExtResource("1_t4vds")
+script = ExtResource("1_uh1fx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_oidio")
+rotation = 1.5708
+texture = ExtResource("1_3psdi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_b0rnn")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]

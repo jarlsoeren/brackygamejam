@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://3b33cl271j01"]
+
+[ext_resource type="Texture2D" uid="uid://cw70dbyhlc11w" path="res://icon.svg" id="1_qvc6i"]
+[ext_resource type="PackedScene" uid="uid://bu0n6s88jwf6l" path="res://Player/OUTDATEDcar.tscn" id="2_72vsg"]
+
+[node name="Racetrack" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(582.5, 326.5)
+scale = Vector2(9.02344, 5.05469)
+texture = ExtResource("1_qvc6i")
+
+[node name="Car" parent="." instance=ExtResource("2_72vsg")]
+position = Vector2(348, 270)

@@ -1,16 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgws6srfjhvti"]
+[gd_scene load_steps=3 format=3 uid="uid://bgws6srfjhvti"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_8gt7q"]
+[ext_resource type="Texture2D" uid="uid://cw70dbyhlc11w" path="res://icon.svg" id="2_7oha3"]
 
-[node name="game" type="Node"]
+[node name="Game" type="Node"]
 script = ExtResource("1_8gt7q")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(600, 450)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Multiplayer" type="Control" parent="UI"]
+[node name="MultiplayerConnector" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Multiplayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MultiplayerConnector"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,38 +30,43 @@ offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="Label" parent="UI/Multiplayer/VBoxContainer"]
+[node name="Title" type="Label" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 text = "Multiplayer"
 
-[node name="Host" type="Button" parent="UI/Multiplayer/VBoxContainer"]
+[node name="Host" type="Button" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 text = "Host"
 
-[node name="Copy OID" type="Button" parent="UI/Multiplayer/VBoxContainer"]
+[node name="Copy OID" type="Button" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 text = "Copy OID"
 
-[node name="HSeparator" type="HSeparator" parent="UI/Multiplayer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 
-[node name="OID Input" type="LineEdit" parent="UI/Multiplayer/VBoxContainer"]
+[node name="OID Input" type="LineEdit" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Host OID"
 
-[node name="Join" type="Button" parent="UI/Multiplayer/VBoxContainer"]
+[node name="Join" type="Button" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 text = "Join"
 
-[node name="OID" type="Label" parent="UI/Multiplayer/VBoxContainer"]
+[node name="OID" type="Label" parent="UI/MultiplayerConnector/VBoxContainer"]
 layout_mode = 2
 text = "Loading..."
 horizontal_alignment = 1
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://Player/Player.tscn")
+_spawnable_scenes = PackedStringArray("res://Player/PlayerCar.tscn")
 spawn_path = NodePath("..")
 
-[connection signal="pressed" from="UI/Multiplayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="UI/Multiplayer/VBoxContainer/Copy OID" to="." method="_on_copy_oid_pressed"]
-[connection signal="pressed" from="UI/Multiplayer/VBoxContainer/Join" to="." method="_on_join_pressed"]
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(597.8, 464.58)
+scale = Vector2(8.59688, 5.74094)
+texture = ExtResource("2_7oha3")
+
+[connection signal="pressed" from="UI/MultiplayerConnector/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="UI/MultiplayerConnector/VBoxContainer/Copy OID" to="." method="_on_copy_oid_pressed"]
+[connection signal="pressed" from="UI/MultiplayerConnector/VBoxContainer/Join" to="." method="_on_join_pressed"]

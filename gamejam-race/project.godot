@@ -21,12 +21,6 @@ Multiplayer="*res://multiplayer.gd"
 Noray="*res://addons/netfox.noray/noray.gd"
 PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
 
-[autoload]
-
-Multiplayer="*res://multiplayer.gd"
-Noray="*res://addons/netfox.noray/noray.gd"
-PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
-
 [display]
 
 window/size/viewport_width=1200
