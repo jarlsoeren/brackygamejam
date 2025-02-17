@@ -23,6 +23,7 @@ window/size/window_height_override=1800
 window/stretch/mode="viewport"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg")
@@ -50,6 +51,8 @@ down={
 ]
 }
 
+=======
+>>>>>>> parent of 9a5f4f4 (added_online_gameplay)
 =======
 >>>>>>> parent of 9a5f4f4 (added_online_gameplay)
 [rendering]
